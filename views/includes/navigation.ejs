@@ -1,0 +1,21 @@
+<div class="backdrop"></div>
+
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu is-active">
+      <div class="navbar-start">
+        <a class="<%= path === '/add-task' ? 'has-text-primary' : '' %> 
+          <%= path === '/edit-task' ? 'has-text-primary' : '' %> navbar-item" href="/add-task" id="add-task-link">Add Task
+        </a>
+        <a class="<%= path === '/' ? 'has-text-primary' : '' %> navbar-item" href="/">Tasks</a>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

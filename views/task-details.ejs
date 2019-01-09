@@ -1,0 +1,54 @@
+<%- include('includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('includes/navigation.ejs') %>
+        <section class="section">
+            <div class="container">
+                    <article class="message is-dark">
+                            <div class="card">
+                                    <header class="card-header">
+                                      <p class="card-header-title">
+                                            Title: <%= task.title %>
+                                      </p>
+                                      <a href="#" class="card-header-icon" aria-label="more options">
+                                        <span class="icon">
+                                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                      </a>
+                                    </header>
+                                    <div class="card-content">
+                                      <div class="content">
+                                        <p class="task__description">
+                                            <%= task.description %>
+                                        </p>
+                                        <time datetime="<%= task.date.dateMachineReadable %>">Created At: <%= task.date.dateHumanReadable %></time>
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="container">
+                                        <div class="field is-grouped is-grouped-centered">
+                                            <p class="control">
+                                                <a href="/tasks/<%= task.id %>" class="button is-primary">Details</a>
+                                            </p>
+                
+                                            <p class="control">
+                                                <a href="/edit-task/<%= task.id %>?edit=true" class="button is-warning">Edit</a>
+                                            </p>
+                                  
+                                            <p class="control">
+                                                <form action="/delete-task" method="POST">
+                                                  <input type="hidden" value="<%= task.id %>" name="taskId">
+                                                  <button class="button is-primary is-danger " type="submit">Delete</button>
+                                              </form> 
+                                            </p>
+                                          </div>
+                                  </div>
+            </div>
+            
+        </section>
+        <%- include('includes/end.ejs') %>
+
+
+        
+                

@@ -1,0 +1,33 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body>
+   <%- include('includes/navigation.ejs') %>
+
+    <section class="section">
+        <div class="container">
+                <form class="product-form" action="/<% if (editing) { %>edit-task<% } else { %>add-task<% } %>" method="POST">
+                    <div class="field">
+                        <label class="label" for="title">Title</label>
+                        <input class="input" type="text" name="title" id="title" value="<% if (editing) { %><%= task.title %><% } %>">
+                    </div>
+                    <div class="field">
+                        <label class="label"for="description">Description</label>
+                        <textarea class="textarea" name="description" id="description" rows="5"><% if (editing) { %><%= task.description %><% } %></textarea>
+                    </div>
+                    <div class="field">
+                        <% if (editing) { %>
+                            <input  type="hidden" value="<%= task.id %>" name="taskId">
+                            <input  type="hidden" value="<%= task.date.dateMachineReadable %>" name="dateMachineReadable">
+                            <input  type="hidden" value="<%= task.date.dateHumanReadable %>" name="dateHumanReadable">
+                        <% } %>
+            
+                        <button class="button is-primary" id="submit-button" type="submit"><% if (editing) { %>Update task<% } else { %>Add task<% } %></button>
+                    </div>
+                    
+                </form>
+        </div>
+    </section>
+<%- include('includes/end.ejs') %>
+
+
